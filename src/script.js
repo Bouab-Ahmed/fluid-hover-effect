@@ -10,7 +10,7 @@ const imageIds = [
 const createItem = (key) => {
   let liItem = document.createElement("li");
   liItem.className =
-    "group relative overflow-hidden bg-rose-300 h-[500px] w-full rounded-2xl";
+    "group relative overflow-hidden bg-rose-300 h-[500px] w-full rounded-2xl flex-1 hover:grow-[1.25] transition-all";
 
   let imgItm = document.createElement("img");
   let imagebg = `https://images.unsplash.com/photo-${imageIds[key]}?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dmlicmFudHxlbnwwfHwwfHx8MA%3D%3D`;
@@ -29,8 +29,10 @@ const createItem = (key) => {
   let paragraph = document.createElement("p");
   paragraph.innerHTML =
     "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima quia ipsaeius.";
-  paragraph.className = "mt-2 overflow-hidden text-white/70";
+  paragraph.className =
+    "mt-2 overflow-hidden text-white/70 opacity-0 transition group-hover:opacity-100 duration-500";
 
+  // css grid to animate p with dynamic height when hover
   let paraDiv = document.createElement("div");
   paraDiv.className =
     "grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-all";
