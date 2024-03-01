@@ -38,10 +38,15 @@ const createItem = (key) => {
     "grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-all";
   paraDiv.appendChild(paragraph);
 
+  // wrap everything inside li within a div to prevent line break jumps with fixed width
+  let wrapper = document.createElement("div");
+  wrapper.className = "w-52";
+  wrapper.appendChild(title);
+  wrapper.appendChild(paraDiv);
+
   liItem.appendChild(imgItm);
   liItem.appendChild(divItem);
-  divItem.appendChild(title);
-  divItem.appendChild(paraDiv);
+  divItem.appendChild(wrapper);
 
   return liItem;
 };
